@@ -6,6 +6,7 @@ import {
   TodaySharp,
 } from "@mui/icons-material";
 import {
+  Backdrop,
   CSSObject,
   List,
   ListItem,
@@ -30,6 +31,7 @@ function openedMixin(theme: Theme): CSSObject {
       duration: theme.transitions.duration.enteringScreen,
     }),
     overflowX: "hidden",
+    border: 0,
   };
 }
 
@@ -76,63 +78,74 @@ export default function Sidebar(): JSX.Element {
   }
 
   return (
-    <Drawer
-      variant={"permanent"}
-      open={open}
-      onMouseEnter={handleOpen}
-      onMouseLeave={handleClose}
-    >
-      <List sx={{ paddingY: 0 }}>
-        {/* Logo */}
-        <ListItem
-          sx={{
-            paddingY: theme.spacing(2),
-            background: `linear-gradient(to right bottom, ${theme.palette.primary.main}, ${theme.palette.primary.dark})`,
-          }}
-        >
-          <ListItemIcon>
-            <AllInclusiveSharp sx={{ color: theme.palette.common.white }} />
-          </ListItemIcon>
-        </ListItem>
-
-        {/* Menu Links */}
-        {/* TODO: Replace with an configured array. */}
-        <ListItem disablePadding={true}>
-          <ListItemButton sx={{ borderRadius: 0, paddingY: theme.spacing(2) }}>
+    <>
+      <Drawer
+        variant={"permanent"}
+        open={open}
+        onMouseEnter={handleOpen}
+        onMouseLeave={handleClose}
+      >
+        <List sx={{ paddingY: 0 }}>
+          {/* Logo */}
+          <ListItem
+            sx={{
+              paddingY: theme.spacing(2),
+              background: `linear-gradient(to right bottom, ${theme.palette.primary.main}, ${theme.palette.primary.dark})`,
+            }}
+          >
             <ListItemIcon>
-              <DashboardSharp />
+              <AllInclusiveSharp sx={{ color: theme.palette.common.white }} />
             </ListItemIcon>
-            <ListItemText>Dashboard</ListItemText>
-          </ListItemButton>
-        </ListItem>
+          </ListItem>
 
-        <ListItem disablePadding={true}>
-          <ListItemButton sx={{ borderRadius: 0, paddingY: theme.spacing(2) }}>
-            <ListItemIcon>
-              <FlagSharp />
-            </ListItemIcon>
-            <ListItemText>Notices</ListItemText>
-          </ListItemButton>
-        </ListItem>
+          {/* Menu Links */}
+          {/* TODO: Replace with an configured array. */}
+          <ListItem disablePadding={true}>
+            <ListItemButton
+              sx={{ borderRadius: 0, paddingY: theme.spacing(2) }}
+            >
+              <ListItemIcon>
+                <DashboardSharp />
+              </ListItemIcon>
+              <ListItemText>Dashboard</ListItemText>
+            </ListItemButton>
+          </ListItem>
 
-        <ListItem disablePadding={true}>
-          <ListItemButton sx={{ borderRadius: 0, paddingY: theme.spacing(2) }}>
-            <ListItemIcon>
-              <TodaySharp />
-            </ListItemIcon>
-            <ListItemText>120 Day Planning</ListItemText>
-          </ListItemButton>
-        </ListItem>
+          <ListItem disablePadding={true}>
+            <ListItemButton
+              sx={{ borderRadius: 0, paddingY: theme.spacing(2) }}
+            >
+              <ListItemIcon>
+                <FlagSharp />
+              </ListItemIcon>
+              <ListItemText>Notices</ListItemText>
+            </ListItemButton>
+          </ListItem>
 
-        <ListItem disablePadding={true}>
-          <ListItemButton sx={{ borderRadius: 0, paddingY: theme.spacing(2) }}>
-            <ListItemIcon>
-              <DateRangeSharp />
-            </ListItemIcon>
-            <ListItemText>Annual Planning</ListItemText>
-          </ListItemButton>
-        </ListItem>
-      </List>
-    </Drawer>
+          <ListItem disablePadding={true}>
+            <ListItemButton
+              sx={{ borderRadius: 0, paddingY: theme.spacing(2) }}
+            >
+              <ListItemIcon>
+                <TodaySharp />
+              </ListItemIcon>
+              <ListItemText>120 Day Planning</ListItemText>
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding={true}>
+            <ListItemButton
+              sx={{ borderRadius: 0, paddingY: theme.spacing(2) }}
+            >
+              <ListItemIcon>
+                <DateRangeSharp />
+              </ListItemIcon>
+              <ListItemText>Annual Planning</ListItemText>
+            </ListItemButton>
+          </ListItem>
+        </List>
+      </Drawer>
+      <Backdrop open={open} sx={{ zIndex: theme.zIndex.drawer - 1 }} />
+    </>
   );
 }

@@ -532,6 +532,13 @@ export function getThemedComponents(theme: Theme) {
           },
         },
       },
+      MuiBackdrop: {
+        styleOverrides: {
+          root: {
+            background: "rgba(0, 0, 0, 0.2)",
+          },
+        },
+      },
     },
   };
 }
