@@ -1,4 +1,4 @@
-import { Box, Container } from "@mui/material";
+import { Box, Container, useTheme } from "@mui/material";
 
 import React from "react";
 import Sidebar from "../../Components/Sidebar";
@@ -9,10 +9,15 @@ export default function Dashboard({
 }: {
   children: React.ReactNode;
 }): JSX.Element {
+  const theme = useTheme();
+
   return (
     <Box sx={{ display: "flex" }}>
       <Sidebar />
-      <Box component={"main"} sx={{ flexGrow: 1 }}>
+      <Box
+        component={"main"}
+        sx={{ flexGrow: 1, marginLeft: theme.spacing(6) }}
+      >
         <Topbar />
         <Container maxWidth={"xl"}>{children}</Container>
       </Box>
