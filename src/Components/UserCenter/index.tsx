@@ -1,13 +1,10 @@
 import {
   Avatar,
   Badge,
-  Box,
   Card,
-  CardActions,
   CardContent,
   CardHeader,
   Divider,
-  IconButton,
   List,
   ListItem,
   ListItemButton,
@@ -15,7 +12,6 @@ import {
   ListItemSecondaryAction,
   ListItemText,
   Popover,
-  Stack,
   Typography,
   useTheme,
 } from "@mui/material";
@@ -28,8 +24,16 @@ import {
 
 import React from "react";
 
-function UserCenterCard(): JSX.Element {
+interface UserCenterCardProps {
+  onClose: (event: React.MouseEvent<HTMLElement>) => void;
+}
+
+function UserCenterCard(props: UserCenterCardProps): JSX.Element {
   const theme = useTheme();
+
+  function handleLinkClick(event: React.MouseEvent<HTMLElement>) {
+    props.onClose(event);
+  }
 
   return (
     <Card>
@@ -45,12 +49,19 @@ function UserCenterCard(): JSX.Element {
           month: "long",
           day: "numeric",
         })}
+        sx={{
+          background: `linear-gradient(to right bottom, ${theme.palette.primary.main}, ${theme.palette.primary.dark})`,
+          color: theme.palette.common.white,
+          "& .MuiCardHeader-subheader": {
+            color: theme.palette.common.white,
+          },
+        }}
       />
       <Divider />
       <CardContent sx={{ padding: 0, paddingTop: theme.spacing(2) }}>
         <List>
           <ListItem disablePadding={true}>
-            <ListItemButton sx={{ borderRadius: 0 }}>
+            <ListItemButton sx={{ borderRadius: 0 }} onClick={handleLinkClick}>
               <ListItemIcon>
                 <Badge
                   color={"secondary"}
@@ -68,7 +79,7 @@ function UserCenterCard(): JSX.Element {
           </ListItem>
 
           <ListItem disablePadding={true}>
-            <ListItemButton sx={{ borderRadius: 0 }}>
+            <ListItemButton sx={{ borderRadius: 0 }} onClick={handleLinkClick}>
               <ListItemIcon>
                 <SettingsSharp />
               </ListItemIcon>
@@ -80,7 +91,7 @@ function UserCenterCard(): JSX.Element {
           </ListItem>
 
           <ListItem disablePadding={true}>
-            <ListItemButton sx={{ borderRadius: 0 }}>
+            <ListItemButton sx={{ borderRadius: 0 }} onClick={handleLinkClick}>
               <ListItemIcon>
                 <LogoutSharp />
               </ListItemIcon>
@@ -140,9 +151,9 @@ export default function UserCenter(): JSX.Element {
           vertical: "top",
           horizontal: "right",
         }}
-        sx={{ marginTop: theme.spacing(1) }}
+        sx={{ marginTop: theme.spacing(2) }}
       >
-        {open && <UserCenterCard />}
+        {open && <UserCenterCard onClose={handleClose} />}
       </Popover>
     </>
   );
