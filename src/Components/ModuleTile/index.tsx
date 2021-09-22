@@ -7,6 +7,7 @@ import {
   IconButton,
   Stack,
   Typography,
+  useMediaQuery,
   useTheme,
 } from "@mui/material";
 
@@ -25,6 +26,7 @@ interface ModuleTileProps {
 
 export default function ModuleTile(props: ModuleTileProps): JSX.Element {
   const theme = useTheme();
+  const isSm = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <Card sx={{ width: "100%", height: "100%" }} variant={"outlined"}>
@@ -80,7 +82,7 @@ export default function ModuleTile(props: ModuleTileProps): JSX.Element {
                 </Stack>
                 {index < props.content.length - 1 && (
                   <Divider
-                    orientation={"vertical"}
+                    orientation={isSm ? "horizontal" : "vertical"}
                     variant={"middle"}
                     flexItem={true}
                   />

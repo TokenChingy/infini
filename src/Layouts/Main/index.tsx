@@ -16,7 +16,11 @@ export default function Main(props: MainProps): JSX.Element {
       <Sidebar />
       <Box
         component={"main"}
-        sx={{ flexGrow: 1, marginLeft: theme.spacing(6) }}
+        sx={{
+          flexGrow: 1,
+          marginLeft: theme.spacing(6),
+          marginBottom: theme.spacing(6),
+        }}
       >
         <Container maxWidth={"xl"}>
           <Topbar />
