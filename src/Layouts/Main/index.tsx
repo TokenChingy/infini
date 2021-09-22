@@ -4,11 +4,11 @@ import React from "react";
 import Sidebar from "../../Components/Sidebar";
 import Topbar from "../../Components/Topbar";
 
-export default function Dashboard({
-  children,
-}: {
+interface MainProps {
   children: React.ReactNode;
-}): JSX.Element {
+}
+
+export default function Main(props: MainProps): JSX.Element {
   const theme = useTheme();
 
   return (
@@ -19,7 +19,7 @@ export default function Dashboard({
         sx={{ flexGrow: 1, marginLeft: theme.spacing(6) }}
       >
         <Topbar />
-        <Container maxWidth={"xl"}>{children}</Container>
+        <Container maxWidth={"lg"}>{props.children}</Container>
       </Box>
     </Box>
   );

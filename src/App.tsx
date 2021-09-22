@@ -1,6 +1,11 @@
-import Dashboard from "./Layouts/Dashboard";
+import Dashboard from "./Pages/Dashboard";
+import Main from "./Layouts/Main";
 import React from "react";
 
 export default function App() {
-  return <Dashboard>Hello! This is just some placeholder text.</Dashboard>;
+  return (
+    <Main>
+      <Dashboard />
+    </Main>
+  );
 }
