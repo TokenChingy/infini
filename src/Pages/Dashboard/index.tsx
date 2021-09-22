@@ -16,7 +16,7 @@ export default function Dashboard(props: DashboardProps): JSX.Element {
 
   return (
     <Grid container={true} spacing={2} alignItems={"stretch"}>
-      <Grid item={true} xs={12} sm={6} md={4}>
+      <Grid item={true} xs={12} md={6} xl={4}>
         <ModuleTile
           module={"120 Day Planning"}
           content={[
@@ -40,7 +40,7 @@ export default function Dashboard(props: DashboardProps): JSX.Element {
           ]}
         />
       </Grid>
-      <Grid item={true} xs={12} sm={6} md={4}>
+      <Grid item={true} xs={12} md={6} xl={4}>
         <ModuleTile
           module={"Annual Planning"}
           content={[
@@ -51,7 +51,7 @@ export default function Dashboard(props: DashboardProps): JSX.Element {
           ]}
         />
       </Grid>
-      <Grid item={true} xs={12} sm={6} md={4}>
+      <Grid item={true} xs={12} md={6} xl={4}>
         <ModuleTile
           module={"120 Day Planning"}
           content={[
