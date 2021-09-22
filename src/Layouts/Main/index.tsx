@@ -18,7 +18,7 @@ export default function Main(props: MainProps): JSX.Element {
         component={"main"}
         sx={{ flexGrow: 1, marginLeft: theme.spacing(6) }}
       >
-        <Container maxWidth={"lg"}>
+        <Container maxWidth={"xl"}>
           <Topbar />
           {props.children}
         </Container>

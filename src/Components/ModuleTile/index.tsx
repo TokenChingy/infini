@@ -27,7 +27,7 @@ export default function ModuleTile(props: ModuleTileProps): JSX.Element {
   const theme = useTheme();
 
   return (
-    <Card sx={{ width: "100%" }} variant={"outlined"}>
+    <Card sx={{ width: "100%", height: "100%" }} variant={"outlined"}>
       <CardHeader
         title={props.module}
         action={
@@ -48,7 +48,7 @@ export default function ModuleTile(props: ModuleTileProps): JSX.Element {
       <CardContent>
         <Stack
           direction={{ xs: "column", sm: "row" }}
-          spacing={{ xs: 1, sm: 2 }}
+          spacing={2}
           justifyContent={"center"}
           alignItems={"center"}
         >
@@ -68,9 +68,10 @@ export default function ModuleTile(props: ModuleTileProps): JSX.Element {
                   {statistic.subheading && (
                     <Box
                       sx={{
-                        fontSize: theme.typography.pxToRem(14),
+                        fontSize: theme.typography.pxToRem(12),
                         textTransform: "uppercase",
                         textAlign: "center",
+                        marginTop: theme.spacing(1),
                       }}
                     >
                       {statistic.subheading}
