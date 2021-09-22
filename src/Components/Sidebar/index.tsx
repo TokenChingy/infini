@@ -42,7 +42,7 @@ function closedMixin(theme: Theme): CSSObject {
       duration: theme.transitions.duration.leavingScreen,
     }),
     overflowX: "hidden",
-    width: `calc(${theme.spacing(6)} + 1px)`,
+    width: theme.spacing(6),
   };
 }
 
