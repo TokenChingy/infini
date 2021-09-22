@@ -1,4 +1,4 @@
-import { Box, Stack, useTheme } from "@mui/material";
+import { Box, Stack, Typography, useTheme } from "@mui/material";
 
 import React from "react";
 import UserCenter from "../UserCenter";
@@ -12,10 +12,13 @@ export default function Topbar(): JSX.Element {
       justifyContent={"space-between"}
       alignItems={"center"}
       sx={{
-        padding: theme.spacing(2),
+        paddingTop: theme.spacing(2),
+        paddingBottom: theme.spacing(4),
       }}
     >
-      <Box />
+      <Box>
+        <Typography variant={"h2"}>Dashboard</Typography>
+      </Box>
       <Box>
         <UserCenter />
       </Box>
