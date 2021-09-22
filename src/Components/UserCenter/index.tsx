@@ -153,7 +153,7 @@ export default function UserCenter(): JSX.Element {
         }}
         sx={{ marginTop: theme.spacing(2) }}
       >
-        {open && <UserCenterCard onClose={handleClose} />}
+        <UserCenterCard onClose={handleClose} />
       </Popover>
     </>
   );
