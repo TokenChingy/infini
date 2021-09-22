@@ -3,7 +3,6 @@ import {
   DashboardSharp,
   DateRangeSharp,
   FlagSharp,
-  NotificationsSharp,
   TodaySharp,
 } from "@mui/icons-material";
 import {
@@ -102,15 +101,6 @@ export default function Sidebar(): JSX.Element {
               <DashboardSharp />
             </ListItemIcon>
             <ListItemText>Dashboard</ListItemText>
-          </ListItemButton>
-        </ListItem>
-
-        <ListItem disablePadding={true}>
-          <ListItemButton sx={{ borderRadius: 0, paddingY: theme.spacing(2) }}>
-            <ListItemIcon>
-              <NotificationsSharp />
-            </ListItemIcon>
-            <ListItemText>Notifications</ListItemText>
           </ListItemButton>
         </ListItem>
 

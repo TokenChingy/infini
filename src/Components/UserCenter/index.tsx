@@ -4,7 +4,6 @@ import {
   Card,
   CardContent,
   CardHeader,
-  Divider,
   List,
   ListItem,
   ListItemButton,
@@ -24,6 +23,8 @@ import {
 
 import React from "react";
 
+const cardWidth = 280;
+
 interface UserCenterCardProps {
   onClose: (event: React.MouseEvent<HTMLElement>) => void;
 }
@@ -36,11 +37,11 @@ function UserCenterCard(props: UserCenterCardProps): JSX.Element {
   }
 
   return (
-    <Card>
+    <Card sx={{ width: cardWidth }}>
       <CardHeader
         title={
           <Typography variant={"h6"} component={"div"}>
-            Hello Jason Lei
+            Hello, Jason Lei
           </Typography>
         }
         subheader={new Date().toLocaleDateString(undefined, {
@@ -57,7 +58,6 @@ function UserCenterCard(props: UserCenterCardProps): JSX.Element {
           },
         }}
       />
-      <Divider />
       <CardContent sx={{ padding: 0, paddingTop: theme.spacing(2) }}>
         <List>
           <ListItem disablePadding={true}>
