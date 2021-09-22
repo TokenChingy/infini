@@ -67,21 +67,21 @@ const Drawer = styled(MuiDrawer, {
 
 export default function Sidebar(): JSX.Element {
   const theme = useTheme();
-  const [open, setOpen] = React.useState<boolean>(false);
+  const [sidebarOpen, setSidebarOpen] = React.useState<boolean>(false);
 
   function handleOpen() {
-    setOpen(true);
+    setSidebarOpen(true);
   }
 
   function handleClose() {
-    setOpen(false);
+    setSidebarOpen(false);
   }
 
   return (
     <>
       <Drawer
         variant={"permanent"}
-        open={open}
+        open={sidebarOpen}
         onMouseEnter={handleOpen}
         onMouseLeave={handleClose}
       >
@@ -145,7 +145,7 @@ export default function Sidebar(): JSX.Element {
           </ListItem>
         </List>
       </Drawer>
-      <Backdrop open={open} sx={{ zIndex: theme.zIndex.drawer - 1 }} />
+      <Backdrop open={sidebarOpen} sx={{ zIndex: theme.zIndex.drawer - 1 }} />
     </>
   );
 }

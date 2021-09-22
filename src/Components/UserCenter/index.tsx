@@ -1,6 +1,7 @@
 import {
   Avatar,
   Badge,
+  Box,
   Card,
   CardContent,
   CardHeader,
@@ -121,26 +122,26 @@ function UserCenterAvatar(props: UserCenterAvatarProps): JSX.Element {
 
 export default function UserCenter(): JSX.Element {
   const theme = useTheme();
-  const [open, setOpen] = React.useState<boolean>(false);
+  const [userCenterOpen, setUserCenterOpen] = React.useState<boolean>(false);
   const [avatarAnchor, setAvatarAnchor] = React.useState<HTMLElement | null>(
     null
   );
 
   function handleOpen(event: React.MouseEvent<HTMLElement>) {
     setAvatarAnchor(event.currentTarget);
-    setOpen(true);
+    setUserCenterOpen(true);
   }
 
   function handleClose() {
     setAvatarAnchor(null);
-    setOpen(false);
+    setUserCenterOpen(false);
   }
 
   return (
     <>
       <UserCenterAvatar onClick={handleOpen} />
       <Popover
-        open={open}
+        open={userCenterOpen}
         anchorEl={avatarAnchor}
         onClose={handleClose}
         anchorOrigin={{

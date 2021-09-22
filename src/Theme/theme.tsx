@@ -537,6 +537,9 @@ export function getThemedComponents(theme: Theme) {
           root: {
             background: "rgba(0, 0, 0, 0.2)",
           },
+          invisible: {
+            background: "none",
+          },
         },
       },
     },
